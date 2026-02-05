@@ -1,0 +1,26 @@
+{
+  "name": "astramig-cli",
+  "version": "0.1.0",
+  "description": "AstraMig CLI",
+  "type": "commonjs",
+  "bin": {
+    "astramig": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "smoke": "npm run build && node dist/index.js --version",
+    "pkg": "npm run build && pkg . --targets node18-macos-x64,node18-macos-arm64,node18-linux-x64,node18-win-x64 --out-path dist-bin"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "pkg": "^5.8.1",
+    "typescript": "^5.4.0"
+  }
+}
